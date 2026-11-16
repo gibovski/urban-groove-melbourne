@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://gibovski.github.io/urban-groove-melbourne/sitemap.xml

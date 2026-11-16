@@ -1,0 +1,16 @@
+{
+  "name": "urban-groove-melbourne",
+  "version": "1.0.0",
+  "scripts": {
+    "test": "playwright test",
+    "serve": "python3 -m http.server 4173"
+  },
+  "keywords": [],
+  "author": "",
+  "description": "Static Melbourne cover trio showcase",
+  "devDependencies": {
+    "@axe-core/playwright": "^4.14.0",
+    "@playwright/test": "^1.65.1"
+  },
+  "private": true
+}
