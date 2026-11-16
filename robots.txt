@@ -1,3 +1,5 @@
+# Project Pages copy; crawlers only apply robots.txt at the host root.
+# Submit this project sitemap directly in Search Console.
 User-agent: *
 Allow: /
 Sitemap: https://gibovski.github.io/urban-groove-melbourne/sitemap.xml

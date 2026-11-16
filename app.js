@@ -1,3 +1,4 @@
+document.documentElement.classList.add('js');
 'use strict';
 const menu = document.querySelector('.menu');
 const nav = document.querySelector('#nav');
@@ -15,7 +16,8 @@ const search = document.querySelector('#song-search');
 const container = document.querySelector('#songs');
 const count = document.querySelector('#song-count');
 const more = document.querySelector('#more-songs');
-let songs = [], filter = 'All', limit = 12;
+const songs = Array.from(container.querySelectorAll('.song'), row => ({title: row.querySelector('strong').textContent, artist: row.querySelector('span').textContent, set: row.dataset.set}));
+let filter = 'All', limit = 12;
 function render() {
  const query = search.value.trim().toLocaleLowerCase();
  const found = songs.filter(song => (filter === 'All' || song.set === filter) && `${song.title} ${song.artist}`.toLocaleLowerCase().includes(query));
@@ -27,4 +29,4 @@ function render() {
 search.addEventListener('input', () => { limit = 12; render(); });
 document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => { filter = button.dataset.filter; limit = 12; document.querySelectorAll('[data-filter]').forEach(item => item.setAttribute('aria-pressed', String(item === button))); render(); }));
 more.addEventListener('click', () => { limit += 24; render(); });
-fetch('assets/songs.json').then(response => { if (!response.ok) throw new Error('Repertoire unavailable'); return response.json(); }).then(data => { songs = data; render(); }).catch(() => { count.textContent = 'Repertoire could not load. Please use the EntertainOz song list linked below.'; });
+render();

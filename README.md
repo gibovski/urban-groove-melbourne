@@ -22,3 +22,5 @@ Tests cover 320/375/390/768/1440 widths, no horizontal overflow, hero/CTA visibi
 Push to main runs tests, packages only static public files, then publishes via GitHub Pages Actions. GitHub Pages settings must use Actions. Screenshots appear locally in ignored `test-results/`; release verification evidence is in `docs/verification.md`.
 
 The project owner authorised the three specified photographs; exact gallery sources and image transformations are documented. No general third-party photography licence is claimed. No testimonials, prices, availability or direct contact details are invented. This project does not touch Radio Remedy.
+
+SEO audit, crawl limitations, owner Search Console steps and exact custom-domain migration checklist: [docs/seo.md](docs/seo.md). After repertoire edits run `npm run build` to refresh indexable HTML before tests/commit.

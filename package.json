@@ -2,8 +2,9 @@
   "name": "urban-groove-melbourne",
   "version": "1.0.0",
   "scripts": {
-    "test": "playwright test",
-    "serve": "python3 -m http.server 4173"
+    "test": "node scripts/render-repertoire.cjs --check && playwright test",
+    "serve": "python3 -m http.server 4173",
+    "build": "node scripts/render-repertoire.cjs"
   },
   "keywords": [],
   "author": "",
