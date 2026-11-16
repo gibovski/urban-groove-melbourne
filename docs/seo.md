@@ -36,3 +36,7 @@ Account/property owner must verify a Search Console URL-prefix property for the 
 - `python3 /var/lib/bazworker/workspace/scripts/bootstrap-dev-tools.py`: baseline tools available.
 - `git diff --check`: passed. `xml.etree.ElementTree.parse('sitemap.xml')`: passed.
 - `LD_LIBRARY_PATH=/var/lib/bazworker/.local/lib/bazfit-browser/usr/lib/x86_64-linux-gnu npm test`: 9 passed, including 320/375/390/768/1440 layouts, axe WCAG A/AA, interactions, no-JS 130-song/navigation availability, metadata, JSON-LD assertions, sitemap and local links. Initial plain npm test could not launch Chromium due to missing libatk; reusing existing user-local shared libraries resolved it without system changes. CI installs browser dependencies explicitly.
+
+## Live lab follow-up
+
+First live Lighthouse mobile/simulated-throttling run after deployment: performance 81, accessibility 100, SEO 100; FCP 1.1 s, LCP 1.9 s, TBT 770 ms, CLS 0. These are a single lab run, not field CWV; INP was not measured. It identified oversized logo/wordmark delivery and a non-scored visible-label mismatch on video buttons. Follow-up adds responsive 640px logo / 420px wordmark variants, corrects hero logo intrinsic ratio to the actual 1200×600, and aligns video button names with visible labels. GitHub Pages' 600-second cache policy cannot be configured here. Full Chrome failed due to absent libcups; Lighthouse ran successfully with Playwright's headless shell and user-local libraries.
