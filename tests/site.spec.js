@@ -22,8 +22,8 @@ test('search, filters, expansion, video consent and keyboard',async({page})=>{
  await page.locator('#song-search').fill('');await expect(page.locator('#song-count')).toContainText('36 songs');
  await page.getByRole('button',{name:'Show more songs'}).click();await expect(page.locator('.song')).toHaveCount(36);
  await page.route('https://www.youtube-nocookie.com/**',route=>route.fulfill({status:200,body:'<html><title>Mock video</title></html>'}));
- await page.getByRole('button',{name:"Play live video: It’s My Life by Urban Groove",exact:true}).click();await expect(page.locator('iframe')).toHaveAttribute('src',/VW291rpbk9c/);
- await page.getByRole('button',{name:'Play live video: Shut Up & Dance by Urban Groove',exact:true}).click();await expect(page.locator('iframe').nth(1)).toHaveAttribute('src',/y1EKChxEzug/);
+ await page.getByRole('button',{name:/IT’S.*MY LIFE.*PLAY LIVE VIDEO/}).click();await expect(page.locator('iframe')).toHaveAttribute('src',/VW291rpbk9c/);
+ await page.getByRole('button',{name:/SHUT UP.*DANCE.*PLAY LIVE VIDEO/}).click();await expect(page.locator('iframe').nth(1)).toHaveAttribute('src',/y1EKChxEzug/);
  await page.goto('/');await page.keyboard.press('Tab');await expect(page.getByText('Skip to content')).toBeFocused();await page.keyboard.press('Enter');await expect(page.locator('#main')).toBeFocused();
  await page.emulateMedia({reducedMotion:'reduce'});expect(await page.evaluate(()=>getComputedStyle(document.documentElement).scrollBehavior)).toBe('auto');
 });
