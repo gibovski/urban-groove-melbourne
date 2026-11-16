@@ -1,0 +1,28 @@
+{
+  "checked": "2026-11-16",
+  "permission": "Project owner explicitly authorised these three band photographs and requested authentic branding.",
+  "assets": [
+    {
+      "output": "assets/urban-groove-logo.webp",
+      "source": "https://www.entertainoz.com.au/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdkZMIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--9f05e6ade7c011a339212a0b994b98fdddf012fc/1716170411_image_file_name.png",
+      "derived": [
+        "urban-groove-wordmark.webp",
+        "favicon.png",
+        "apple-touch-icon.png",
+        "social.png"
+      ]
+    },
+    {
+      "output": "assets/band-backdrop.webp",
+      "source": "https://crowdpleaser-prod.s3.amazonaws.com/profile_images/files/000/035/677/large/IMG_1805.jpeg"
+    },
+    {
+      "output": "assets/band-stage.webp",
+      "source": "https://www.entertainoz.com.au/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBczlLIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--89fab361c8b93a772e43c2ff65265a794d3d1f2c/1709517117_1709174312_image_file_name.png"
+    },
+    {
+      "output": "assets/band-graffiti.webp",
+      "source": "https://www.entertainoz.com.au/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBBdkJMIiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--d77405d9d7c55f223cdbf25e7182c73dd5eade18/1716170401_image_file_name.jpeg"
+    }
+  ]
+}

@@ -25,5 +25,18 @@ test('search, filters, expansion, video consent and keyboard',async({page})=>{
  await page.getByRole('button',{name:"Play Urban Groove performing It's My Life",exact:true}).click();await expect(page.locator('iframe')).toHaveAttribute('src',/VW291rpbk9c/);
  await page.getByRole('button',{name:'Play Urban Groove performing Shut Up And Dance',exact:true}).click();await expect(page.locator('iframe').nth(1)).toHaveAttribute('src',/y1EKChxEzug/);
  await page.goto('/');await page.keyboard.press('Tab');await expect(page.getByText('Skip to content')).toBeFocused();await page.keyboard.press('Enter');await expect(page.locator('#main')).toBeFocused();
- await page.emulateMedia({reducedMotion:'reduce'});expect(await page.locator('.vinyl').evaluate(e=>getComputedStyle(e).animationName)).toBe('none');
+ await page.emulateMedia({reducedMotion:'reduce'});expect(await page.evaluate(()=>getComputedStyle(document.documentElement).scrollBehavior)).toBe('auto');
+});
+
+test('authentic logo and all three approved photographs load',async({page})=>{
+ await page.goto('/');
+ await expect(page.locator('.hero-logo')).toHaveAttribute('src','assets/urban-groove-logo.webp');
+ await expect(page.locator('.record-art,.vinyl,.band-graphic')).toHaveCount(0);
+ for(const name of ['backdrop','stage','graffiti']){
+  const photo=page.locator(`img[src="assets/band-${name}.webp"]`);
+  await photo.scrollIntoViewIfNeeded();
+  await expect(photo).toBeVisible();
+  await expect.poll(()=>photo.evaluate(i=>i.complete&&i.naturalWidth>0)).toBeTruthy();
+ }
+ await expect(page.locator('#book a').first()).toHaveAttribute('href',/artist_ids=5795/);
 });
